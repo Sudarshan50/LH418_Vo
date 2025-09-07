@@ -33,7 +33,7 @@ class SuccessResponse {
     return new SuccessResponse(message, data, 201).send(res);
   }
 
-  static accepted(res, message = 'Request accepted', data = null) {
+  static deleteResource(res, message = 'Request Deletion Started', data = null) {
     return new SuccessResponse(message, data, 202).send(res);
   }
 

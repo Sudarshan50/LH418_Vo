@@ -30,11 +30,19 @@ app.get(
     }
     healthStatus.lastChecked = Date.now();
     await healthStatus.save();
-    return SuccessResponse.ok(
-      res,
-      "Health status retrieved successfully",
-      healthStatus.status
-    );
+    if (healthStatus.status === "Destroy") {
+      return SuccessResponse.deleteResource(
+        res,
+        "Service is being destroyed",
+        healthStatus.status
+      );
+    } else {
+      return SuccessResponse.ok(
+        res,
+        "Health status retrieved successfully",
+        healthStatus.status
+      );
+    }
   })
 );
 
