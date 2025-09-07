@@ -40,3 +40,6 @@ Thumbs.db
 .idea/
 *.sublime-workspace
 *.sublime-project
+
+*.bat
+*.ps1
