@@ -28,6 +28,8 @@ app.get(
     if (!healthStatus) {
       throw ErrorResponse.notFound("Health status not found");
     }
+    healthStatus.lastChecked = Date.now();
+    await healthStatus.save();
     return SuccessResponse.ok(
       res,
       "Health status retrieved successfully",
