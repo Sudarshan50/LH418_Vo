@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "name": "exfiltration_v1",
+  "name": "IITD-PS",
   "builds": [
     {
       "src": "/index.js",
