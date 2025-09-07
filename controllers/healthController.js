@@ -30,9 +30,9 @@ health.reflectStatus = asyncHandler(async (req, res) => {
   if (!healthPoint) {
     throw ErrorResponse.notFound("Health point not found");
   }
-  const lastCheckedTimestamp = healthPoint.lastCheckedTimestamp;
+  const lastCheckedTimestamp = new Date(healthPoint.lastChecked).getTime();
   const currentTimestamp = Date.now();
-  if (currentTimestamp - lastCheckedTimestamp > 11000) {
+  if (currentTimestamp - lastCheckedTimestamp > 15000) {
     return SuccessResponse.ok(res, "Health is degraded", {
       status: "Degraded",
     });
